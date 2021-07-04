@@ -1,0 +1,158 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>校园宿舍管理系统</title>
+	</head>
+	
+	 <%
+	String msg = (String)session.getAttribute("msg");
+	if(msg!=null){
+	%>
+	<script type="text/javascript">alert("<%=msg%>")</script>
+	<%
+	session.removeAttribute("msg");
+	}
+	 %>
+	
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		#toptitle{
+			height:60px;
+			color:#06F;
+			font-size:19px;
+			font-weight:bolder;
+			padding-left:50px;"
+		}
+		.b_table{
+			width:920px ;
+			margin: 0px auto;
+			background-color: #E6F5FF;
+		}
+		.citate{
+ 			border-right: 1px solid black; 
+			width: 200px;
+		}
+		
+		.m_table{
+			width: 714px;
+			margin-left:-1px;
+ 			position: absolute;
+			top:95px;				
+		}
+		.m_toptitle{
+			font-size:16px;
+			font-weight:bolder;
+			height:30px;
+			padding-left:25px;
+			background-image: linear-gradient(to left, #92fe9d 0%, #00c9ff 100%);
+		}
+		.m_top2{
+			
+			float: left;
+			padding-left: 25px;
+			margin:5px 0px;
+			font-size: 14px;
+		}
+		/* ----------------------------- */
+		.therow{
+			
+			height: 35px;
+		}
+		.word{
+			text-align: right;
+			padding-right: 10px;
+			padding-left: 70px;
+		}
+		.therow input{
+			height: 20px;
+
+			
+		}
+		#addtd{
+			margin-right: 50px;
+		}
+		.bt{
+			text-align: center;
+			margin-top: 20px;
+		}
+		.red{
+			color: red;
+		}
+	</style>
+	
+	<body>
+		
+		<table class="b_table">
+			<tr>
+				<td id="toptitle" colspan="2">
+					校园宿舍管理系统
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" height="30px" background="img/MenuBg.jpg"> 
+					
+				</td>
+			</tr>			
+			<tr>
+				<!-- 插入引用界面 -->
+				<td class="citate" height="580" align="center" valign="top">
+					<%@include file="Citation.jsp" %>
+				</td>
+				
+				<td bgcolor="#F6F9FE">						
+					<div>
+					<form action="Add_Building" onsubmit="return judge()">
+						<table class="m_table"  cellspacing="0" cellpadding="0">	
+							<tr>
+								<td class="m_toptitle" colspan="5">
+									添加楼宇
+								</td>
+							</tr>
+							<tr height="40px"></tr>
+							<tr class="therow" id="rowtop">
+								<td></td>
+								<td class="word">
+									<span class="red">*</span>
+									<span>名称:</span>
+								</td>	
+								<td><input type="text" id="building_name" name="building_name"></td>									
+							</tr>
+							<tr class="therow">
+								<td height="100px"></td>
+								<td class="word">
+									<span>简介:</span>
+								</td>	
+								<td>
+									<textarea rows="6" cols="40" id="area" name="area"></textarea>
+								</td>									
+							</tr>					
+							<tr height="5px">
+								<td></td>
+							</tr>
+							<tr class="therow">
+								
+								<td class="bt"colspan="3" align="center">
+									<input type="submit"  id="addtd"  name="add" value="添加楼宇">
+									<input type="button" value="返回上页" onclick="history.go(-1)">
+								</td>
+								
+							</tr>												
+						</table>
+					</form>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" height="30px" background="img/bootBg.jpg" >
+					
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
